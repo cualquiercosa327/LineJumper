@@ -1,14 +1,16 @@
 import core.volatile;
 
 import types;
-import sprite;
+import tiles;
 
 // memory sections
-enum MEM_IO      = cast(u32*)              0x04000000;
-enum MEM_VRAM    = cast(u16*)              0x06000000;
-enum MEM_PALETTE = cast(u16*)              0x05000200;
-enum MEM_TILE    = cast(TileBlock*)        MEM_VRAM;
-enum MEM_OAM     = cast(ObjectAttributes*) 0x07000000;
+enum MEM_IO           = cast(u32*)              0x04000000;
+enum MEM_VRAM         = cast(u16*)              0x06000000;
+enum MEM_BG_PALETTE   = cast(u16*)              0x05000000;
+enum MEM_OBJ_PALETTE  = cast(u16*)              0x05000200;
+enum MEM_TILE         = cast(TileBlock*)        MEM_VRAM;
+enum MEM_SCREENBLOCKS = cast(ScreenBlock*)      MEM_VRAM;
+enum MEM_OAM          = cast(ObjectAttributes*) 0x07000000;
 
 enum REG_DISPLAY_CONTROL = MEM_IO;
 enum REG_VCOUNT          = cast(u16*) 0x04000006;
@@ -17,8 +19,25 @@ enum REG_VCOUNT          = cast(u16*) 0x04000006;
 enum DCNT_MODE0 = 0x000; // MODE 0 - tiled mode, 4 backgrounds, no bg rotation or scaling
 enum DCNT_MODE3 = 0x003; // MODE 3 - bitmap mode, 16bpp
 
-// layers
+// backgrounds
+enum DCNT_BG0 = 0x0100;
+enum DCNT_BG1 = 0x0200;
 enum DCNT_BG2 = 0x0400;
+enum DCNT_BG3 = 0x0800;
+
+enum REG_BG0_CONTROL = cast(u16*) 0x04000008;
+enum REG_BG1_CONTROL = cast(u16*) 0x0400000A;
+enum REG_BG2_CONTROL = cast(u16*) 0x0400000C;
+enum REG_BG3_CONTROL = cast(u16*) 0x0400000E;
+
+enum REG_BG0_SCROLL_H = cast(u16*) 0x04000010;
+enum REG_BG0_SCROLL_V = cast(u16*) 0x04000012;
+enum REG_BG1_SCROLL_H = cast(u16*) 0x04000014;
+enum REG_BG1_SCROLL_V = cast(u16*) 0x04000016;
+enum REG_BG2_SCROLL_H = cast(u16*) 0x04000018;
+enum REG_BG2_SCROLL_V = cast(u16*) 0x0400001A;
+enum REG_BG3_SCROLL_H = cast(u16*) 0x0400001C;
+enum REG_BG3_SCROLL_V = cast(u16*) 0x0400001E;
 
 enum ENABLE_OBJECTS  = 0x1000;
 enum MAPPING_MODE_1D = 0x0040;
@@ -66,20 +85,6 @@ void drawRect(u32 left, u32 top, u32 width, u32 height, u16 color)
     }
 }
 
-void uploadPaletteMemory()
-{
-    import core.stdc.string : memcpy;
-
-    memcpy(MEM_PALETTE, &spritePalette[0], spritePaletteLength);
-}
-
-void uploadTileMemory()
-{
-    import core.stdc.string : memcpy;
-
-    memcpy(&MEM_TILE[4][1], &spriteTiles[0], spriteTilesLength);
-}
-
 /**
  * Waits until all rows are drawn (until VBLANK). Do drawing after calling `vsync`.
  */
@@ -91,20 +96,33 @@ void vsync()
 
 extern (C) int main()
 {
-    uploadPaletteMemory();
-    uploadTileMemory();
+    import core.stdc.string : memcpy;
+
+    memcpy(MEM_OBJ_PALETTE, &spritePalette[0], spritePaletteLength);
+    memcpy(&MEM_TILE[4][1], &spriteTiles[0], spriteTilesLength);
+
+    memcpy(MEM_BG_PALETTE, &bgPalette[0], bgPaletteLength);
+    memcpy(&MEM_TILE[0][0], &bgTiles[0], bgTilesLength);
+
+    memcpy(&MEM_SCREENBLOCKS[1], &checkeredBg[0], checkeredBgLength);
+
+    volatileStore(REG_BG0_CONTROL,  0x0180);
 
     ObjectAttributes* spriteAttributes = &MEM_OAM[0];
     spriteAttributes.attr0 = 0x2032;
     spriteAttributes.attr1 = 0x4064;
     spriteAttributes.attr2 = 2;
 
-    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
+    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
 
     u32 x = 0;
+    u16 bgScroll = 0;
     while (true)
     {
         vsync();
+
+        volatileStore(REG_BG0_SCROLL_H, bgScroll);
+        bgScroll++;
 
         x = (x + 1) % SCREEN_WIDTH;
         spriteAttributes.attr1 = 0x4000 | (0x1FF & x);

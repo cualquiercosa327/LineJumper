@@ -1,10 +1,14 @@
+import core.volatile;
+
 alias u8 = ubyte;
 alias u16 = ushort;
 alias u32 = uint;
 
 // memory sections
-enum MEM_IO   = cast(u32*)   0x04000000;
+enum MEM_IO   = cast(u32*) 0x04000000;
 enum MEM_VRAM = cast(u16*) 0x06000000;
+
+enum REG_DISPLAY_CONTROL = MEM_IO;
 
 // modes
 enum DCNT_MODE3 = 0x003;
@@ -27,7 +31,7 @@ enum CLR_WHITE  = 0x7FFF;
 
 u16 rgb15(u32 red, u32 green, u32 blue)
 {
-    return cast(u16) (red | (green << 5) | (blue << 10));
+    return cast(u16) (red | green << 5 | blue << 10);
 }
 
 void drawPixel(u32 x, u32 y, u16 color)
@@ -37,7 +41,7 @@ void drawPixel(u32 x, u32 y, u16 color)
 
 extern (C) int main()
 {
-    *MEM_IO = DCNT_MODE3 | DCNT_BG2;
+    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE3 | DCNT_BG2);
 
     drawPixel(120, 80, rgb15(31,  0,  0));
     drawPixel(136, 80, rgb15( 0, 31,  0));

@@ -23,10 +23,9 @@ LDC     := ldc2
 ARCH	:= -mthumb-interwork -mthumb
 
 # Include libtonc and other devkit pro things
-INCFLAGS := --I$(DEVKITPRO)/libtonc/include -I$(DEVKITPRO)/libgba/include -I$(SOURCE_DIR) -I$(DATA_DIR)
-
-# Include tonc and mm
-LIBFLAGS := -L$(DEVKITPRO)/libtonc/lib -ltonc -L$(DEVKITPRO)/libgba/lib -lmm
+# For now I won't be using this
+# INCFLAGS := --I$(DEVKITPRO)/libtonc/include -I$(DEVKITPRO)/libgba/include -I$(SOURCE_DIR) -I$(DATA_DIR)
+# LIBFLAGS := -L$(DEVKITPRO)/libtonc/lib -ltonc -L$(DEVKITPRO)/libgba/lib -lmm
 
 CFLAGS	:= $(ARCH) -Wall -Werror -Wno-error=unused-variable -fno-strict-aliasing -mcpu=arm7tdmi -mtune=arm7tdmi $(INCFLAGS) $(LIBFLAGS)
 
@@ -38,8 +37,9 @@ DFLAGS  := -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi \
 		   --d-version=DevkitARM --d-version=CRuntime_Newlib_GBA --d-version=_GBA \
 		   -function-sections
 
-DSTDLIB := libd
-DFLAGS += -I$(DSTDLIB)
+# Don't inclue libd, I won't be using it... probably...
+# DSTDLIB := libd
+# DFLAGS += -I$(DSTDLIB)
 
 ifeq ($(DEBUG),1)
 	CFLAGS += -O2 -g -DDEBUG

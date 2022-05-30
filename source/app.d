@@ -55,6 +55,34 @@ enum COL_MAG    = 0x7C1F;
 enum COL_CYAN   = 0x7FE0;
 enum COL_WHITE  = 0x7FFF;
 
+// input
+enum REG_KEYINPUT = cast(u16*) 0x4000130;
+
+enum KEY_A      = 0x0001;
+enum KEY_B      = 0x0002;
+enum KEY_SELECT = 0x0004;
+enum KEY_START  = 0x0008;
+enum KEY_RIGHT  = 0x0010;
+enum KEY_LEFT   = 0x0020;
+enum KEY_UP     = 0x0040;
+enum KEY_DOWN   = 0x0080;
+enum KEY_R      = 0x0100;
+enum KEY_L      = 0x0200;
+
+enum KEY_MASK   = 0xFC00;
+
+__gshared u32 currentInput;
+
+void keyPoll()
+{
+    currentInput = volatileLoad(REG_KEYINPUT) | KEY_MASK;
+}
+
+u32 getKeyState(u32 key)
+{
+    return !(key & currentInput);
+}
+
 struct ObjectAttributes
 {
 align(1):
@@ -115,17 +143,39 @@ extern (C) int main()
 
     volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
 
-    u32 x = 0;
+    s32 x = 0;
+    s32 y = 0;
     u16 bgScroll = 0;
     while (true)
     {
         vsync();
+        keyPoll();
 
         volatileStore(REG_BG0_SCROLL_H, bgScroll);
         bgScroll++;
 
-        x = (x + 1) % SCREEN_WIDTH;
+        if (getKeyState(KEY_RIGHT))
+        {
+            x = (x + 1) % SCREEN_WIDTH;
+        }
+        else if (getKeyState(KEY_LEFT))
+        {
+            x--;
+            if (x < 0) x = SCREEN_WIDTH;
+        }
+
+        if (getKeyState(KEY_DOWN))
+        {
+            y = (y + 1) % SCREEN_HEIGHT;
+        }
+        else if (getKeyState(KEY_UP))
+        {
+            y--;
+            if (y < 0) y = SCREEN_HEIGHT;
+        }
+
         spriteAttributes.attr1 = 0x4000 | (0x1FF & x);
+        spriteAttributes.attr0 = 0x2000 | (0x1FF & y);
     }
 
     return 0;

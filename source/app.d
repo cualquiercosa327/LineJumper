@@ -127,9 +127,9 @@ extern (C) int main()
     import core.stdc.string : memcpy;
 
     memcpy(MEM_BG_PALETTE, &bgPalette[0], bgPalette.length * u16.sizeof);
-    memcpy(&MEM_TILE[0][0], &bgTiles[0], bgTiles.length * u8.sizeof);
+    memcpy(&MEM_TILE[0][0], &bgTileset[0], bgTileset.length * u8.sizeof);
 
-    memcpy(&MEM_SCREENBLOCKS[1], &testTilemap[0], testTilemap.length * u16.sizeof);
+    memcpy(&MEM_SCREENBLOCKS[1], &bgTilemap[0], bgTilemap.length * u16.sizeof);
 
     volatileStore(REG_BG0_CONTROL, 0x180);
 

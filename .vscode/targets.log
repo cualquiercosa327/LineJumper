@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun  1 22:20:17 2022
+# Make data base, printed on Wed Jun  1 23:57:19 2022
 
 # Variables
 
@@ -278,12 +278,13 @@ LC_IDENTIFICATION = sr_RS@latin
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
+ 
 
 # Directories
 
-# . (device 66309, inode 2622686): 15 files, no impossibilities.
+# . (device 66309, inode 2622686): 12 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -309,7 +310,7 @@ LineJumper-code.gba: LineJumper.elf
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-30 21:22:31.901119638
+#  Last modified 2022-06-01 23:07:35.305221141
 #  File has been updated.
 #  Successfully updated.
 
@@ -385,7 +386,6 @@ source/types.o: source/types.d
 no-content: LineJumper-code.gba
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -422,12 +422,12 @@ source/app.o: source/app.d
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 380 B / avg = 10 B
-# current buf: size = 8162 B / used = 380 B / count = 36 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 372 B / avg = 10 B
+# current buf: size = 8162 B / used = 372 B / count = 36 / avg = 10 B
 
-# strcache performance: lookups = 66 / hit rate = 45%
+# strcache performance: lookups = 63 / hit rate = 42%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=0/66=0%
-# Finished Make data base on Wed Jun  1 22:20:17 2022
+# Load=36/8192=0%, Rehash=0, Collisions=0/63=0%
+# Finished Make data base on Wed Jun  1 23:57:19 2022
 
  

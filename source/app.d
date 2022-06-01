@@ -126,56 +126,19 @@ extern (C) int main()
 {
     import core.stdc.string : memcpy;
 
-    memcpy(MEM_OBJ_PALETTE, &spritePalette[0], spritePaletteLength);
-    memcpy(&MEM_TILE[4][1], &spriteTiles[0], spriteTilesLength);
+    memcpy(MEM_BG_PALETTE, &bgPalette[0], bgPalette.length * u16.sizeof);
+    memcpy(&MEM_TILE[0][0], &bgTiles[0], bgTiles.length * u8.sizeof);
 
-    memcpy(MEM_BG_PALETTE, &bgPalette[0], bgPaletteLength);
-    memcpy(&MEM_TILE[0][0], &bgTiles[0], bgTilesLength);
+    memcpy(&MEM_SCREENBLOCKS[1], &testTilemap[0], testTilemap.length * u16.sizeof);
 
-    memcpy(&MEM_SCREENBLOCKS[1], &checkeredBg[0], checkeredBgLength);
+    volatileStore(REG_BG0_CONTROL, 0x180);
 
-    volatileStore(REG_BG0_CONTROL,  0x0180);
+    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | MAPPING_MODE_1D);
 
-    ObjectAttributes* spriteAttributes = &MEM_OAM[0];
-    spriteAttributes.attr0 = 0x2032;
-    spriteAttributes.attr1 = 0x4064;
-    spriteAttributes.attr2 = 2;
-
-    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
-
-    s32 x = 0;
-    s32 y = 0;
-    u16 bgScroll = 0;
     while (true)
     {
         vsync();
         keyPoll();
-
-        volatileStore(REG_BG0_SCROLL_H, bgScroll);
-        bgScroll++;
-
-        if (getKeyState(KEY_RIGHT))
-        {
-            x = (x + 1) % SCREEN_WIDTH;
-        }
-        else if (getKeyState(KEY_LEFT))
-        {
-            x--;
-            if (x < 0) x = SCREEN_WIDTH;
-        }
-
-        if (getKeyState(KEY_DOWN))
-        {
-            y = (y + 1) % SCREEN_HEIGHT;
-        }
-        else if (getKeyState(KEY_UP))
-        {
-            y--;
-            if (y < 0) y = SCREEN_HEIGHT;
-        }
-
-        spriteAttributes.attr1 = 0x4000 | (0x1FF & x);
-        spriteAttributes.attr0 = 0x2000 | (0x1FF & y);
     }
 
     return 0;

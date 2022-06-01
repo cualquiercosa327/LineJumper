@@ -42,7 +42,7 @@ DFLAGS  := -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi \
 # DFLAGS += -I$(DSTDLIB)
 
 ifeq ($(DEBUG),1)
-	CFLAGS += -O2 -g -DDEBUG
+	CFLAGS += -g -DDEBUG
 	DFLAGS += -g --d-version=DEBUG
 else
 	# non-debug

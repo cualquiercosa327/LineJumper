@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 21:09:00 2022
+# Make data base, printed on Wed Jun  1 22:20:17 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7eb9b680-81b9-43a8-9759-c0f9ff7038d6.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-bf572053-45ec-4f8a-a8c1-3addb7740a77.sock
 # environment
 LC_NAME = sr_RS@latin
 # makefile (from 'Makefile', line 60)
@@ -30,8 +30,6 @@ LC_NUMERIC = sr_RS@latin
 LDC := ldc2
 # environment
 VSCODE_CWD = /home/code/work/LineJumper
-# makefile (from 'Makefile', line 26)
-INCFLAGS := --I/opt/devkitpro/libtonc/include -I/opt/devkitpro/libgba/include -Isource -Iassets/build 
 # environment
 LC_ADDRESS = sr_RS@latin
 # environment
@@ -59,7 +57,7 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # makefile (from 'Makefile', line 64)
-APP_OBJECTS_D := libd/libtind/ds/vector.o libd/libtind/ds/dict.o libd/libtind/ds/heap.o libd/libtind/ds/set.o libd/libtind/ds/deque.o libd/libtind/functional.o libd/libtind/mmio.o libd/libtind/util.o libd/libtind/nullable.o libd/bcmath/transform.o libd/bcmath/box.o libd/bcmath/vector.o libd/bcmath/package.o libd/bcmath/valuerange.o libd/bcmath/hexagrid2d.o libd/bcmath/cmath.o libd/bcmath/easings.o libd/bcmath/matrix.o libd/bcmath/misc.o libd/bclib/adt.o libd/bclib/memory/box.o libd/bclib/memory/package.o libd/bclib/memory/allocator/default_allocator.o libd/bclib/memory/allocator/counter_allocator.o libd/bclib/memory/util.o libd/bclib/traits/package.o libd/bclib/traits/traits.o libd/bclib/format.o libd/bclib/allocator/package.o libd/bclib/allocator/allocator_interface.o libd/bclib/bitop.o libd/bclib/io/package.o libd/bclib/io/print.o libd/bclib/io/stdout.o libd/bclib/string.o libd/bclib/util.o libd/bclib/error.o libd/bclib/ctfe.o libd/bclib/match.o libd/bclib/container/dict.o libd/bclib/container/package.o libd/bclib/container/array.o libd/bclib/container/bag.o libd/core/volatile.o libd/core/stdc/stdlib.o libd/core/stdc/stdint.o libd/core/stdc/wchar_.o libd/core/stdc/stdio.o libd/core/stdc/time.o libd/core/stdc/config.o libd/core/stdc/stddef.o libd/core/stdc/fenv.o libd/rt/memory.o libd/rt/mmio.o libd/tonc/tonc_core.o libd/tonc/tonc_surface.o libd/tonc/package.o libd/tonc/tonc_irq.o libd/tonc/tonc_text.o libd/tonc/tonc_bios.o libd/tonc/tonc_math.o libd/tonc/tonc_oam.o libd/tonc/tonc_input.o libd/tonc/tonc_types.o libd/tonc/tonc_memmap.o libd/tonc/tonc_tte.o libd/tonc/tonc_memdef.o libd/tonc/tonc_nocash.o libd/tonc/tonc_video.o libd/object.o libd/libgba/maxmod.o libd/libgba/mm_types.o libd/std/system.o source/app.o
+APP_OBJECTS_D := source/tiles.o source/types.o source/app.o
 # environment
 VSCODE_CODE_CACHE_PATH = /home/code/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
@@ -75,7 +73,7 @@ XAUTHORITY = /home/code/.Xauthority
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.156
+GNOME_TERMINAL_SERVICE = :1.119
 # makefile
 MAKEFLAGS = pqrR
 # makefile (from 'Makefile', line 2)
@@ -109,7 +107,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 19841
+VSCODE_PID = 42847
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -141,17 +139,15 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 2
 # makefile (from 'Makefile', line 63)
-APP_SOURCES_D := libd/libtind/ds/vector.d libd/libtind/ds/dict.d libd/libtind/ds/heap.d libd/libtind/ds/set.d libd/libtind/ds/deque.d libd/libtind/functional.d libd/libtind/mmio.d libd/libtind/util.d libd/libtind/nullable.d libd/bcmath/transform.d libd/bcmath/box.d libd/bcmath/vector.d libd/bcmath/package.d libd/bcmath/valuerange.d libd/bcmath/hexagrid2d.d libd/bcmath/cmath.d libd/bcmath/easings.d libd/bcmath/matrix.d libd/bcmath/misc.d libd/bclib/adt.d libd/bclib/memory/box.d libd/bclib/memory/package.d libd/bclib/memory/allocator/default_allocator.d libd/bclib/memory/allocator/counter_allocator.d libd/bclib/memory/util.d libd/bclib/traits/package.d libd/bclib/traits/traits.d libd/bclib/format.d libd/bclib/allocator/package.d libd/bclib/allocator/allocator_interface.d libd/bclib/bitop.d libd/bclib/io/package.d libd/bclib/io/print.d libd/bclib/io/stdout.d libd/bclib/string.d libd/bclib/util.d libd/bclib/error.d libd/bclib/ctfe.d libd/bclib/match.d libd/bclib/container/dict.d libd/bclib/container/package.d libd/bclib/container/array.d libd/bclib/container/bag.d libd/core/volatile.d libd/core/stdc/stdlib.d libd/core/stdc/stdint.d libd/core/stdc/wchar_.d libd/core/stdc/stdio.d libd/core/stdc/time.d libd/core/stdc/config.d libd/core/stdc/stddef.d libd/core/stdc/fenv.d libd/rt/memory.d libd/rt/mmio.d libd/tonc/tonc_core.d libd/tonc/tonc_surface.d libd/tonc/package.d libd/tonc/tonc_irq.d libd/tonc/tonc_text.d libd/tonc/tonc_bios.d libd/tonc/tonc_math.d libd/tonc/tonc_oam.d libd/tonc/tonc_input.d libd/tonc/tonc_types.d libd/tonc/tonc_memmap.d libd/tonc/tonc_tte.d libd/tonc/tonc_memdef.d libd/tonc/tonc_nocash.d libd/tonc/tonc_video.d libd/object.d libd/libgba/maxmod.d libd/libgba/mm_types.d libd/std/system.d source/app.d
+APP_SOURCES_D := source/tiles.d source/types.d source/app.d
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/4e732333_aee7_4bc5_812a_6216c9de0654
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/2e85bd2f_6d80_41d1_afb5_3d50274b0fd6
 # environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # makefile (from 'Makefile', line 4)
-PATH := /opt/devkitpro/devkitARM/bin:/opt/devkitpro/tools/bin:/opt/devkitpro/devkitARM/bin:/home/code/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
-# makefile (from 'Makefile', line 41)
-DSTDLIB := libd
+PATH := /opt/devkitpro/devkitARM/bin:/home/code/git/tilemap-studio/bin:/opt/devkitpro/tools/bin:/opt/devkitpro/devkitARM/bin:/home/code/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -160,14 +156,12 @@ LC_MONETARY = sr_RS@latin
 MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
-# makefile (from 'Makefile', line 29)
-LIBFLAGS := -L/opt/devkitpro/libtonc/lib -ltonc -L/opt/devkitpro/libgba/lib -lmm
 # environment
 LC_TIME = sr_RS@latin
 # environment
 VSCODE_LOG_NATIVE = false
 # makefile (from 'Makefile', line 65)
-APP_OBJECTS :=   libd/libtind/ds/vector.o libd/libtind/ds/dict.o libd/libtind/ds/heap.o libd/libtind/ds/set.o libd/libtind/ds/deque.o libd/libtind/functional.o libd/libtind/mmio.o libd/libtind/util.o libd/libtind/nullable.o libd/bcmath/transform.o libd/bcmath/box.o libd/bcmath/vector.o libd/bcmath/package.o libd/bcmath/valuerange.o libd/bcmath/hexagrid2d.o libd/bcmath/cmath.o libd/bcmath/easings.o libd/bcmath/matrix.o libd/bcmath/misc.o libd/bclib/adt.o libd/bclib/memory/box.o libd/bclib/memory/package.o libd/bclib/memory/allocator/default_allocator.o libd/bclib/memory/allocator/counter_allocator.o libd/bclib/memory/util.o libd/bclib/traits/package.o libd/bclib/traits/traits.o libd/bclib/format.o libd/bclib/allocator/package.o libd/bclib/allocator/allocator_interface.o libd/bclib/bitop.o libd/bclib/io/package.o libd/bclib/io/print.o libd/bclib/io/stdout.o libd/bclib/string.o libd/bclib/util.o libd/bclib/error.o libd/bclib/ctfe.o libd/bclib/match.o libd/bclib/container/dict.o libd/bclib/container/package.o libd/bclib/container/array.o libd/bclib/container/bag.o libd/core/volatile.o libd/core/stdc/stdlib.o libd/core/stdc/stdint.o libd/core/stdc/wchar_.o libd/core/stdc/stdio.o libd/core/stdc/time.o libd/core/stdc/config.o libd/core/stdc/stddef.o libd/core/stdc/fenv.o libd/rt/memory.o libd/rt/mmio.o libd/tonc/tonc_core.o libd/tonc/tonc_surface.o libd/tonc/package.o libd/tonc/tonc_irq.o libd/tonc/tonc_text.o libd/tonc/tonc_bios.o libd/tonc/tonc_math.o libd/tonc/tonc_oam.o libd/tonc/tonc_input.o libd/tonc/tonc_types.o libd/tonc/tonc_memmap.o libd/tonc/tonc_tte.o libd/tonc/tonc_memdef.o libd/tonc/tonc_nocash.o libd/tonc/tonc_video.o libd/object.o libd/libgba/maxmod.o libd/libgba/mm_types.o libd/std/system.o source/app.o
+APP_OBJECTS :=   source/tiles.o source/types.o source/app.o
 # environment
 LC_TELEPHONE = sr_RS@latin
 # automatic
@@ -212,8 +206,8 @@ USER = code
 MAKE_VERSION := 4.3
 # 'override' directive
 .SHELLSTATUS := 0
-# makefile (from 'Makefile', line 33)
-LDFLAGS := -mthumb-interwork -mthumb -specs=gba.specs -L/opt/devkitpro/libtonc/lib -ltonc -L/opt/devkitpro/libgba/lib -lmm -Wl,-Map,LineJumper.map
+# makefile (from 'Makefile', line 32)
+LDFLAGS := -mthumb-interwork -mthumb -specs=gba.specs  -Wl,-Map,LineJumper.map
 # environment
 LC_MEASUREMENT = sr_RS@latin
 # environment
@@ -225,11 +219,11 @@ LC_PAPER = sr_RS@latin
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'Makefile', line 49)
-CFLAGS := -mthumb-interwork -mthumb -Wall -Werror -Wno-error=unused-variable -fno-strict-aliasing -mcpu=arm7tdmi -mtune=arm7tdmi --I/opt/devkitpro/libtonc/include -I/opt/devkitpro/libgba/include -Isource -Iassets/build  -L/opt/devkitpro/libtonc/lib -ltonc -L/opt/devkitpro/libgba/lib -lmm -O2 -fomit-frame-pointer -ffast-math
+CFLAGS := -mthumb-interwork -mthumb -Wall -Werror -Wno-error=unused-variable -fno-strict-aliasing -mcpu=arm7tdmi -mtune=arm7tdmi   -O2 -fomit-frame-pointer -ffast-math
 # environment
 COLORTERM = truecolor
 # makefile (from 'Makefile', line 50)
-DFLAGS := -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi -mattr=+strict-align,+loop-align -Isource --d-version=DevkitARM --d-version=CRuntime_Newlib_GBA --d-version=_GBA -function-sections -Ilibd -O2 -frame-pointer=none -ffast-math
+DFLAGS := -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi -mattr=+strict-align,+loop-align -Isource --d-version=DevkitARM --d-version=CRuntime_Newlib_GBA --d-version=_GBA -function-sections -O2 -frame-pointer=none -ffast-math
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -264,7 +258,6 @@ VSCODE_CLI = 1
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from 'Makefile', line 59)
 APP_SOURCES_C := 
- 
 # environment
 VTE_VERSION = 6800
 # environment
@@ -280,7 +273,7 @@ GDMSESSION = berry
 # environment
 LC_IDENTIFICATION = sr_RS@latin
 # variable set hash-table stats:
-# Load=133/1024=13%, Rehash=0, Collisions=17/236=7%
+# Load=130/1024=13%, Rehash=0, Collisions=17/224=8%
 
 # Pattern-specific Variable Values
 
@@ -288,9 +281,9 @@ LC_IDENTIFICATION = sr_RS@latin
 
 # Directories
 
-# . (device 66309, inode 2622686): 10 files, no impossibilities.
+# . (device 66309, inode 2622686): 15 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -299,222 +292,10 @@ LC_IDENTIFICATION = sr_RS@latin
 # Files
 
 # Not a target:
-libd/object.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bcmath/vector.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bcmath/cmath.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/ctfe.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libtind/ds/vector.o: libd/libtind/ds/vector.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/ds/vector'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/bitop.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/memory/util.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/container/array.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/tonc/package.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 source/app.d:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-libd/bclib/match.o: libd/bclib/match.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/match'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bcmath/matrix.o: libd/bcmath/matrix.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/matrix'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/core/stdc/stdlib.o: libd/core/stdc/stdlib.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/stdlib'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bcmath/valuerange.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/container/dict.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/tonc/tonc_irq.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/tonc/tonc_video.o: libd/tonc/tonc_video.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_video'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bcmath/hexagrid2d.o: libd/bcmath/hexagrid2d.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/hexagrid2d'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_oam.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/rt/memory.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/core/volatile.o: libd/core/volatile.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/volatile'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bcmath/transform.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/tonc/tonc_nocash.o: libd/tonc/tonc_nocash.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_nocash'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_input.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/util.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/match.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libgba/mm_types.o: libd/libgba/mm_types.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libgba/mm_types'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/traits/traits.o: libd/bclib/traits/traits.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/traits/traits'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/container/bag.o: libd/bclib/container/bag.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/container/bag'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/rt/mmio.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/allocator/package.o: libd/bclib/allocator/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/allocator/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/container/array.o: libd/bclib/container/array.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/container/array'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
 
 LineJumper-code.gba: LineJumper.elf
 #  Implicit rule search has not been done.
@@ -526,195 +307,19 @@ LineJumper-code.gba: LineJumper.elf
 	padbin 256 $@
 
 # Not a target:
-libd/libtind/ds/deque.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/memory/allocator/default_allocator.o: libd/bclib/memory/allocator/default_allocator.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/memory/allocator/default_allocator'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/memory/allocator/counter_allocator.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/tonc/tonc_core.o: libd/tonc/tonc_core.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_core'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/memory/box.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/core/volatile.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-29 19:13:20.579679823
+#  Last modified 2022-05-30 21:22:31.901119638
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-libd/bcmath/package.d:
+source/tiles.o: source/tiles.d
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/core/stdc/time.o: libd/core/stdc/time.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/time'
+#  Implicit/static pattern stem: 'source/tiles'
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 95):
 	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/libtind/ds/vector.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/core/stdc/config.o: libd/core/stdc/config.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/config'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bcmath/transform.o: libd/bcmath/transform.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/transform'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bcmath/valuerange.o: libd/bcmath/valuerange.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/valuerange'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/libtind/util.o: libd/libtind/util.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/util'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_input.o: libd/tonc/tonc_input.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_input'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/memory/box.o: libd/bclib/memory/box.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/memory/box'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/memory/allocator/default_allocator.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libtind/ds/set.o: libd/libtind/ds/set.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/ds/set'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/libtind/ds/set.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/adt.o: libd/bclib/adt.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/adt'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_video.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bcmath/box.o: libd/bcmath/box.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/box'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/libtind/ds/heap.o: libd/libtind/ds/heap.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/ds/heap'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/libtind/util.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/tonc/tonc_bios.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/std/system.o: libd/std/system.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/std/system'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/libgba/maxmod.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
@@ -730,118 +335,6 @@ clean:
 	@rm -rf $(APP_OBJECTS)
 	@rm -rf $(APP_MAIN_OBJECT)
 
-# Not a target:
-libd/std/system.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/error.o: libd/bclib/error.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/error'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_memdef.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/tonc/tonc_nocash.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bcmath/misc.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/io/package.o: libd/bclib/io/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/io/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_math.o: libd/tonc/tonc_math.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_math'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/core/stdc/stdio.o: libd/core/stdc/stdio.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/stdio'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/traits/package.o: libd/bclib/traits/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/traits/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/format.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/allocator/allocator_interface.o: libd/bclib/allocator/allocator_interface.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/allocator/allocator_interface'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_core.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/core/stdc/stdint.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libgba/maxmod.o: libd/libgba/maxmod.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libgba/maxmod'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_surface.o: libd/tonc/tonc_surface.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_surface'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/allocator/package.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 LineJumper.gba: LineJumper-code.gba
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -850,88 +343,10 @@ LineJumper.gba: LineJumper-code.gba
 	cat $^ > $(NAME).gba
 
 # Not a target:
-libd/core/stdc/fenv.d:
+source/types.d:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-libd/tonc/package.o: libd/tonc/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/container/bag.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bcmath/hexagrid2d.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/libtind/functional.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bcmath/cmath.o: libd/bcmath/cmath.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/cmath'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bcmath/package.o: libd/bcmath/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/adt.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libtind/ds/dict.o: libd/libtind/ds/dict.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/ds/dict'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bcmath/matrix.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/object.o: libd/object.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/object'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/io/stdout.o: libd/bclib/io/stdout.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/io/stdout'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
 
 LineJumper.gbfs:
 #  Implicit rule search has not been done.
@@ -939,66 +354,6 @@ LineJumper.gbfs:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 101):
 	gbfs $@ $(shell find $(DATA_DIR) -name '*.bin')
-
-# Not a target:
-libd/bclib/error.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/core/stdc/fenv.o: libd/core/stdc/fenv.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/fenv'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_memmap.o: libd/tonc/tonc_memmap.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_memmap'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/io/package.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bcmath/misc.o: libd/bcmath/misc.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/misc'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/libtind/nullable.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bcmath/easings.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/allocator/allocator_interface.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/io/print.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -1013,143 +368,15 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-libd/bclib/container/package.o: libd/bclib/container/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/container/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/string.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/libtind/ds/heap.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bcmath/easings.o: libd/bcmath/easings.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/easings'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/rt/memory.o: libd/rt/memory.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/rt/memory'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/format.o: libd/bclib/format.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/format'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_surface.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/core/stdc/time.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/tonc/tonc_types.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 build: LineJumper.gba
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
 
-# Not a target:
-libd/tonc/tonc_memmap.d:
+source/types.o: source/types.d
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/memory/package.o: libd/bclib/memory/package.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/memory/package'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/core/stdc/stddef.o: libd/core/stdc/stddef.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/stddef'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/traits/package.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/core/stdc/stdlib.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/bitop.o: libd/bclib/bitop.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/bitop'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/core/stdc/stdint.o: libd/core/stdc/stdint.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/stdint'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_tte.o: libd/tonc/tonc_tte.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_tte'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_memdef.o: libd/tonc/tonc_memdef.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_memdef'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/ctfe.o: libd/bclib/ctfe.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/ctfe'
+#  Implicit/static pattern stem: 'source/types'
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 95):
@@ -1158,80 +385,21 @@ libd/bclib/ctfe.o: libd/bclib/ctfe.d
 no-content: LineJumper-code.gba
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
-libd/core/stdc/stddef.d:
+source/tiles.d:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-libd/rt/mmio.o: libd/rt/mmio.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/rt/mmio'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_types.o: libd/tonc/tonc_types.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_types'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/io/stdout.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bcmath/box.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/core/stdc/config.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bclib/util.o: libd/bclib/util.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/util'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-LineJumper.elf: libd/libtind/ds/vector.o libd/libtind/ds/dict.o libd/libtind/ds/heap.o libd/libtind/ds/set.o libd/libtind/ds/deque.o libd/libtind/functional.o libd/libtind/mmio.o libd/libtind/util.o libd/libtind/nullable.o libd/bcmath/transform.o libd/bcmath/box.o libd/bcmath/vector.o libd/bcmath/package.o libd/bcmath/valuerange.o libd/bcmath/hexagrid2d.o libd/bcmath/cmath.o libd/bcmath/easings.o libd/bcmath/matrix.o libd/bcmath/misc.o libd/bclib/adt.o libd/bclib/memory/box.o libd/bclib/memory/package.o libd/bclib/memory/allocator/default_allocator.o libd/bclib/memory/allocator/counter_allocator.o libd/bclib/memory/util.o libd/bclib/traits/package.o libd/bclib/traits/traits.o libd/bclib/format.o libd/bclib/allocator/package.o libd/bclib/allocator/allocator_interface.o libd/bclib/bitop.o libd/bclib/io/package.o libd/bclib/io/print.o libd/bclib/io/stdout.o libd/bclib/string.o libd/bclib/util.o libd/bclib/error.o libd/bclib/ctfe.o libd/bclib/match.o libd/bclib/container/dict.o libd/bclib/container/package.o libd/bclib/container/array.o libd/bclib/container/bag.o libd/core/volatile.o libd/core/stdc/stdlib.o libd/core/stdc/stdint.o libd/core/stdc/wchar_.o libd/core/stdc/stdio.o libd/core/stdc/time.o libd/core/stdc/config.o libd/core/stdc/stddef.o libd/core/stdc/fenv.o libd/rt/memory.o libd/rt/mmio.o libd/tonc/tonc_core.o libd/tonc/tonc_surface.o libd/tonc/package.o libd/tonc/tonc_irq.o libd/tonc/tonc_text.o libd/tonc/tonc_bios.o libd/tonc/tonc_math.o libd/tonc/tonc_oam.o libd/tonc/tonc_input.o libd/tonc/tonc_types.o libd/tonc/tonc_memmap.o libd/tonc/tonc_tte.o libd/tonc/tonc_memdef.o libd/tonc/tonc_nocash.o libd/tonc/tonc_video.o libd/object.o libd/libgba/maxmod.o libd/libgba/mm_types.o libd/std/system.o source/app.o
+LineJumper.elf: source/tiles.o source/types.o source/app.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 86):
 	$(LD) $^ $(LDFLAGS) -o $@
-
-# Not a target:
-libd/core/stdc/stdio.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/libtind/ds/dict.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/tonc/tonc_text.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 source/app.o: source/app.d
 #  Implicit rule search has not been done.
@@ -1241,193 +409,25 @@ source/app.o: source/app.d
 #  recipe to execute (from 'Makefile', line 95):
 	$(LDC) $(DFLAGS) -c -of=$@ $<
 
-libd/bclib/container/dict.o: libd/bclib/container/dict.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/container/dict'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_irq.o: libd/tonc/tonc_irq.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_irq'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/memory/allocator/counter_allocator.o: libd/bclib/memory/allocator/counter_allocator.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/memory/allocator/counter_allocator'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_bios.o: libd/tonc/tonc_bios.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_bios'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/bclib/memory/package.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libtind/functional.o: libd/libtind/functional.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/functional'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/core/stdc/wchar_.o: libd/core/stdc/wchar_.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/core/stdc/wchar_'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_math.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/traits/traits.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/bcmath/vector.o: libd/bcmath/vector.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bcmath/vector'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/libtind/mmio.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/bclib/container/package.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 .PHONY: build clean build
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-libd/libtind/nullable.o: libd/libtind/nullable.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/nullable'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/memory/util.o: libd/bclib/memory/util.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/memory/util'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_text.o: libd/tonc/tonc_text.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_text'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/tonc/tonc_tte.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libd/libgba/mm_types.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-libd/libtind/mmio.o: libd/libtind/mmio.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/mmio'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/string.o: libd/bclib/string.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/string'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/tonc/tonc_oam.o: libd/tonc/tonc_oam.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/tonc/tonc_oam'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/libtind/ds/deque.o: libd/libtind/ds/deque.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/libtind/ds/deque'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-libd/bclib/io/print.o: libd/bclib/io/print.d
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'libd/bclib/io/print'
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
-	$(LDC) $(DFLAGS) -c -of=$@ $<
-
-# Not a target:
-libd/core/stdc/wchar_.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 # files hash-table stats:
-# Load=160/1024=16%, Rehash=0, Collisions=36/405=9%
+# Load=18/1024=2%, Rehash=0, Collisions=0/50=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 247 / storage = 5257 B / avg = 21 B
-# current buf: size = 8162 B / used = 5257 B / count = 247 / avg = 21 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 380 B / avg = 10 B
+# current buf: size = 8162 B / used = 380 B / count = 36 / avg = 10 B
 
-# strcache performance: lookups = 416 / hit rate = 40%
+# strcache performance: lookups = 66 / hit rate = 45%
 # hash-table stats:
-# Load=247/8192=3%, Rehash=0, Collisions=8/416=2%
-# Finished Make data base on Mon May 30 21:09:00 2022
+# Load=36/8192=0%, Rehash=0, Collisions=0/66=0%
+# Finished Make data base on Wed Jun  1 22:20:17 2022
 
  

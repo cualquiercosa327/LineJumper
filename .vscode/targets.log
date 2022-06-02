@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  2 17:03:41 2022
+# Make data base, printed on Thu Jun  2 18:04:40 2022
 
 # Variables
 
@@ -19,7 +17,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-0c23cc2a-b503-45ef-b4dd-07d0febabc3f.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-16010cc7-0d0f-4e16-8d22-0509c6dad6b8.sock
 # environment
 LC_NAME = sr_RS@latin
 # makefile (from 'Makefile', line 60)
@@ -107,7 +105,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4879
+VSCODE_PID = 19371
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -278,12 +276,15 @@ LC_IDENTIFICATION = sr_RS@latin
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 
 # Directories
 
-# . (device 66309, inode 2622686): 17 files, no impossibilities.
+# . (device 66309, inode 2622686): 12 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -414,6 +415,7 @@ source/app.o: source/app.d
 #  File has not been updated.
 
 # files hash-table stats:
+ 
 # Load=18/1024=2%, Rehash=0, Collisions=0/50=0%
 # VPATH Search Paths
 
@@ -421,12 +423,12 @@ source/app.o: source/app.d
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 38 / storage = 402 B / avg = 10 B
-# current buf: size = 8162 B / used = 402 B / count = 38 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 372 B / avg = 10 B
+# current buf: size = 8162 B / used = 372 B / count = 36 / avg = 10 B
 
-# strcache performance: lookups = 68 / hit rate = 44%
+# strcache performance: lookups = 63 / hit rate = 42%
 # hash-table stats:
-# Load=38/8192=0%, Rehash=0, Collisions=0/68=0%
-# Finished Make data base on Thu Jun  2 17:03:41 2022
+# Load=36/8192=0%, Rehash=0, Collisions=0/63=0%
+# Finished Make data base on Thu Jun  2 18:04:40 2022
 
  

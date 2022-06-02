@@ -219,6 +219,12 @@ extern (C) int main()
 
     u32 playerX = 100;
     u32 playerY = 100;
+
+    u32 playerMaxJumpHeight = 15;
+    u32 playerJumpHeight = 0;
+    s32 playerJumpDir = 1;
+    bool playerJumping = false;
+
     Sprite* player = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 2, 0);
     Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 4, 0);
 
@@ -249,7 +255,22 @@ extern (C) int main()
             if (playerY < 137) playerY++;
         }
 
-        updateSpritePosition(player, playerX, playerY);
+        if (getKeyState(KEY_A) && !playerJumping)
+        {
+            playerJumping = true;
+            playerJumpDir = 1;
+        }
+
+        if (playerJumping)
+        {
+            if (playerJumpHeight == playerMaxJumpHeight) playerJumpDir = -1;
+
+            playerJumpHeight += playerJumpDir;
+
+            if (playerJumpHeight == 0) playerJumping = false;
+        }
+
+        updateSpritePosition(player, playerX, playerY - playerJumpHeight);
         updateSpritePosition(playerShadow, playerX, playerY);
 
         memcpySprites();

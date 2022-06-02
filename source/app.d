@@ -10,7 +10,7 @@ enum MEM_BG_PALETTE   = cast(u16*)              0x05000000;
 enum MEM_OBJ_PALETTE  = cast(u16*)              0x05000200;
 enum MEM_TILE         = cast(TileBlock*)        MEM_VRAM;
 enum MEM_SCREENBLOCKS = cast(ScreenBlock*)      MEM_VRAM;
-enum MEM_OAM          = cast(ObjectAttributes*) 0x07000000;
+enum MEM_OAM          = cast(u16*)              0x07000000;
 
 enum REG_DISPLAY_CONTROL = MEM_IO;
 enum REG_VCOUNT          = cast(u16*) 0x04000006;
@@ -41,6 +41,8 @@ enum REG_BG3_SCROLL_V = cast(u16*) 0x0400001E;
 
 enum ENABLE_OBJECTS  = 0x1000;
 enum MAPPING_MODE_1D = 0x0040;
+
+enum NUM_SPRITES = 128;
 
 enum SCREEN_WIDTH  = 240;
 enum SCREEN_HEIGHT = 160;
@@ -83,14 +85,33 @@ u32 getKeyState(u32 key)
     return !(key & currentInput);
 }
 
-struct ObjectAttributes
+struct Sprite
 {
 align(1):
     public u16 attr0;
     public u16 attr1;
     public u16 attr2;
-    public u16 pad;
+    public u16 attr3;
 }
+
+enum SpriteSize
+{
+    s8x8,
+    s16x16,
+    s32x32,
+    s64x64,
+    s16x8,
+    s32x8,
+    s32x16,
+    s64x32,
+    s8x16,
+    s8x32,
+    s16x32,
+    s32x64
+}
+
+__gshared Sprite[NUM_SPRITES] sprites;
+__gshared u32 nextSpriteIndex = 0;
 
 u16 rgb15(u32 red, u32 green, u32 blue)
 {
@@ -113,6 +134,68 @@ void drawRect(u32 left, u32 top, u32 width, u32 height, u16 color)
     }
 }
 
+Sprite* initSprite(u32 x, u32 y, SpriteSize size, bool hFlip, bool vFlip, u32 tileIndex, u32 priority)
+{
+    u32 index = nextSpriteIndex++;
+
+    u32 sizeBits;
+    u32 shapeBits;
+    final switch (size)
+    {
+        case SpriteSize.s8x8:   sizeBits = 0; shapeBits = 0; break;
+        case SpriteSize.s16x16: sizeBits = 1; shapeBits = 0; break;
+        case SpriteSize.s32x32: sizeBits = 2; shapeBits = 0; break;
+        case SpriteSize.s64x64: sizeBits = 3; shapeBits = 0; break;
+        case SpriteSize.s16x8:  sizeBits = 0; shapeBits = 1; break;
+        case SpriteSize.s32x8:  sizeBits = 1; shapeBits = 1; break;
+        case SpriteSize.s32x16: sizeBits = 2; shapeBits = 1; break;
+        case SpriteSize.s64x32: sizeBits = 3; shapeBits = 1; break;
+        case SpriteSize.s8x16:  sizeBits = 0; shapeBits = 2; break;
+        case SpriteSize.s8x32:  sizeBits = 1; shapeBits = 2; break;
+        case SpriteSize.s16x32: sizeBits = 2; shapeBits = 2; break;
+        case SpriteSize.s32x64: sizeBits = 3; shapeBits = 2; break;
+    }
+
+    u32 h = hFlip ? 1 : 0;
+    u32 v = vFlip ? 1 : 0;
+
+
+    sprites[index].attr0 = cast(u16) (y         | // y pos
+                                     (0 << 8)   | // rendering mode
+                                     (0 << 10)  | // gfx mode
+                                     (0 << 12)  | // mosaic
+                                     (1 << 13)  | // color mode, 0:16, 1:256
+                                     (shapeBits << 14)); // shape
+
+    sprites[index].attr1 = cast(u16) (x         | // x pos
+                                     (0 << 9)   | // affine flag
+                                     (h << 12)  | // hflip
+                                     (v << 13)  | // vflip
+                                     (sizeBits << 14)); // size
+
+    sprites[index].attr2 = cast(u16) (tileIndex        |
+                                     (priority << 10)  |
+                                     (0 << 12)); // palette bank (only 16 color)
+
+    return &sprites[index];
+}
+
+void updateSpritePosition(Sprite* sprite, u32 x, u32 y)
+{
+    sprite.attr0 &= 0xff00; // clear y
+    sprite.attr0 |= (y & 0xff); // set new y
+
+    sprite.attr1 &= 0xfe00; // clear x
+    sprite.attr1 |= (x & 0x1ff); // set new x
+}
+
+void memcpySprites()
+{
+    import core.stdc.string : memcpy;
+
+    memcpy(MEM_OAM, sprites.ptr, NUM_SPRITES * Sprite.sizeof);
+}
+
 /**
  * Waits until all rows are drawn (until VBLANK). Do drawing after calling `vsync`.
  */
@@ -131,14 +214,45 @@ extern (C) int main()
 
     memcpy(&MEM_SCREENBLOCKS[1], &bgTilemap[0], bgTilemap.length * u16.sizeof);
 
+    memcpy(MEM_OBJ_PALETTE, &spritePalette[0], spritePalette.length * u16.sizeof);
+    memcpy(&MEM_TILE[4][1], &spriteTiles[0], spriteTiles.length * u8.sizeof);
+
+    u32 playerX = 100;
+    u32 playerY = 100;
+    Sprite* player = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 2, 0);
+    Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 4, 0);
+
     volatileStore(REG_BG0_CONTROL, 0x180);
 
-    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | MAPPING_MODE_1D);
+    volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
 
     while (true)
     {
         vsync();
         keyPoll();
+
+        if (getKeyState(KEY_LEFT))
+        {
+            if (playerX > 52) playerX--;
+        }
+        else if (getKeyState(KEY_RIGHT))
+        {
+            if (playerX < 180) playerX++;
+        }
+
+        if (getKeyState(KEY_UP))
+        {
+            if (playerY > 9) playerY--;
+        }
+        else if (getKeyState(KEY_DOWN))
+        {
+            if (playerY < 137) playerY++;
+        }
+
+        updateSpritePosition(player, playerX, playerY);
+        updateSpritePosition(playerShadow, playerX, playerY);
+
+        memcpySprites();
     }
 
     return 0;

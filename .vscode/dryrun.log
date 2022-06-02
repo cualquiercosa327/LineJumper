@@ -1,8 +1,6 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/code/work/LineJumper'
- 
 ldc2 -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi -mattr=+strict-align,+loop-align -Isource --d-version=DevkitARM --d-version=CRuntime_Newlib_GBA --d-version=_GBA -function-sections -O2 -frame-pointer=none -ffast-math -c -of=source/tiles.o source/tiles.d
- 
 ldc2 -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi -mattr=+strict-align,+loop-align -Isource --d-version=DevkitARM --d-version=CRuntime_Newlib_GBA --d-version=_GBA -function-sections -O2 -frame-pointer=none -ffast-math -c -of=source/types.o source/types.d
 ldc2 -betterC --defaultlib=no -mtriple=arm-none-eabi -mcpu=arm7tdmi -mattr=+strict-align,+loop-align -Isource --d-version=DevkitARM --d-version=CRuntime_Newlib_GBA --d-version=_GBA -function-sections -O2 -frame-pointer=none -ffast-math -c -of=source/app.o source/app.d
 arm-none-eabi-gcc source/tiles.o source/types.o source/app.o -mthumb-interwork -mthumb -specs=gba.specs  -Wl,-Map,LineJumper.map -o LineJumper.elf

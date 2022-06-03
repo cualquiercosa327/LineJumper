@@ -209,10 +209,12 @@ extern (C) int main()
 {
     import core.stdc.string : memcpy;
 
-    memcpy(MEM_BG_PALETTE, &bgPalette[0], bgPalette.length * u16.sizeof);
-    memcpy(&MEM_TILE[0][0], &bgTileset[0], bgTileset.length * u8.sizeof);
+    memcpy(MEM_BG_PALETTE, bgPalette.ptr, bgPalette.length * u16.sizeof);
+    memcpy(&MEM_TILE[0][0], bgTileset.ptr, bgTileset.length * u8.sizeof);
 
     memcpy(&MEM_SCREENBLOCKS[1], &bgTilemap[0], bgTilemap.length * u16.sizeof);
+
+    volatileStore(REG_BG0_CONTROL, 0x180);
 
     memcpy(MEM_OBJ_PALETTE, &spritePalette[0], spritePalette.length * u16.sizeof);
     memcpy(&MEM_TILE[4][1], &spriteTiles[0], spriteTiles.length * u8.sizeof);
@@ -227,8 +229,6 @@ extern (C) int main()
 
     Sprite* player = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 2, 0);
     Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 4, 0);
-
-    volatileStore(REG_BG0_CONTROL, 0x180);
 
     volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
 
@@ -255,7 +255,7 @@ extern (C) int main()
             if (playerY < 137) playerY++;
         }
 
-        if (getKeyState(KEY_A) && !playerJumping)
+        if (getKeyState(KEY_B) && !playerJumping)
         {
             playerJumping = true;
             playerJumpDir = 1;

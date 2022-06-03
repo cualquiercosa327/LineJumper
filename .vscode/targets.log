@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  2 18:04:40 2022
+# Make data base, printed on Fri Jun  3 15:45:05 2022
 
 # Variables
 
@@ -17,7 +19,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-16010cc7-0d0f-4e16-8d22-0509c6dad6b8.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9175656d-eace-4ee0-bdd0-18443c24f0f0.sock
 # environment
 LC_NAME = sr_RS@latin
 # makefile (from 'Makefile', line 60)
@@ -27,7 +29,7 @@ LC_NUMERIC = sr_RS@latin
 # makefile (from 'Makefile', line 21)
 LDC := ldc2
 # environment
-VSCODE_CWD = /home/code/work/LineJumper
+VSCODE_CWD = /home/code/work/LineJumper/assets
 # environment
 LC_ADDRESS = sr_RS@latin
 # environment
@@ -71,7 +73,7 @@ XAUTHORITY = /home/code/.Xauthority
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.33
+GNOME_TERMINAL_SERVICE = :1.1288
 # makefile
 MAKEFLAGS = pqrR
 # makefile (from 'Makefile', line 2)
@@ -105,7 +107,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 19371
+VSCODE_PID = 21264
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -139,7 +141,7 @@ SHLVL = 2
 # makefile (from 'Makefile', line 63)
 APP_SOURCES_D := source/tiles.d source/types.d source/app.d
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/da0078fd_8230_47d3_995f_dfd3d0de693b
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/9de45e1e_157a_4a9b_989a_69f35f98b6ce
 # environment
 MAKELEVEL := 0
 # default
@@ -276,15 +278,12 @@ LC_IDENTIFICATION = sr_RS@latin
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # Directories
 
-# . (device 66309, inode 2622686): 12 files, no impossibilities.
+# . (device 66309, inode 2622686): 17 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -415,7 +414,6 @@ source/app.o: source/app.d
 #  File has not been updated.
 
 # files hash-table stats:
- 
 # Load=18/1024=2%, Rehash=0, Collisions=0/50=0%
 # VPATH Search Paths
 
@@ -423,12 +421,12 @@ source/app.o: source/app.d
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 372 B / avg = 10 B
-# current buf: size = 8162 B / used = 372 B / count = 36 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 38 / storage = 402 B / avg = 10 B
+# current buf: size = 8162 B / used = 402 B / count = 38 / avg = 10 B
 
-# strcache performance: lookups = 63 / hit rate = 42%
+# strcache performance: lookups = 68 / hit rate = 44%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=0/63=0%
-# Finished Make data base on Thu Jun  2 18:04:40 2022
+# Load=38/8192=0%, Rehash=0, Collisions=0/68=0%
+# Finished Make data base on Fri Jun  3 15:45:05 2022
 
  

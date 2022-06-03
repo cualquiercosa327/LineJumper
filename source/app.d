@@ -212,12 +212,12 @@ extern (C) int main()
     memcpy(MEM_BG_PALETTE, bgPalette.ptr, bgPalette.length * u16.sizeof);
     memcpy(&MEM_TILE[0][0], bgTileset.ptr, bgTileset.length * u8.sizeof);
 
-    memcpy(&MEM_SCREENBLOCKS[1], &bgTilemap[0], bgTilemap.length * u16.sizeof);
+    memcpy(&MEM_SCREENBLOCKS[1], bgTilemap.ptr, bgTilemap.length * u16.sizeof);
 
     volatileStore(REG_BG0_CONTROL, 0x180);
 
-    memcpy(MEM_OBJ_PALETTE, &spritePalette[0], spritePalette.length * u16.sizeof);
-    memcpy(&MEM_TILE[4][1], &spriteTiles[0], spriteTiles.length * u8.sizeof);
+    memcpy(MEM_OBJ_PALETTE, spritePalette.ptr, spritePalette.length * u16.sizeof);
+    memcpy(&MEM_TILE[4][1], spriteTiles.ptr, spriteTiles.length * u8.sizeof);
 
     u32 playerX = 100;
     u32 playerY = 100;

@@ -2,14 +2,14 @@ module tiles;
 
 import types;
 
-public const u16[] bgPalette =
+public align(4) const u16[4] bgPalette =
 [
-    0x0000, 0x2D08, 0x35b6, 0x3dfa,
+    0x0000, 0x2D08, 0x35b6, 0x3dfa
 ];
 
-public const u16[] spritePalette =
+public align(4) const u16[2] spritePalette =
 [
-    0x5c1f, 0x7fff,
+    0x5c1f, 0x7fff
 ];
 
 public const u8[] bgTileset =

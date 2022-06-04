@@ -1,5 +1,6 @@
 import core.volatile;
 
+import tonc;
 import types;
 import tiles;
 
@@ -118,22 +119,6 @@ u16 rgb15(u32 red, u32 green, u32 blue)
     return cast(u16) (red | green << 5 | blue << 10);
 }
 
-void drawPixel(u32 x, u32 y, u16 color)
-{
-    MEM_VRAM[y * SCREEN_WIDTH + x] = color;
-}
-
-void drawRect(u32 left, u32 top, u32 width, u32 height, u16 color)
-{
-    for (int y = 0; y < height; y++)
-    {
-        for (int x = 0; x < width; x++)
-        {
-            drawPixel(left + x, top + y, color);
-        }
-    }
-}
-
 Sprite* initSprite(u32 x, u32 y, SpriteSize size, bool hFlip, bool vFlip, u32 tileIndex, u32 priority)
 {
     u32 index = nextSpriteIndex++;
@@ -189,11 +174,27 @@ void updateSpritePosition(Sprite* sprite, u32 x, u32 y)
     sprite.attr1 |= (x & 0x1ff); // set new x
 }
 
+void updateSpriteOffset(Sprite* sprite, u32 offset)
+{
+    sprite.attr2 &= 0xfc00;
+    sprite.attr2 |= (offset & 0x03ff);
+}
+
+void setSpriteHorizontalFlip(Sprite* sprite, bool hflip)
+{
+    if (hflip)
+    {
+        sprite.attr1 |= 0x1000;
+    }
+    else
+    {
+        sprite.attr1 &= 0xefff;
+    }
+}
+
 void memcpySprites()
 {
-    import core.stdc.string : memcpy;
-
-    memcpy(MEM_OAM, sprites.ptr, NUM_SPRITES * Sprite.sizeof);
+    memcpy16(MEM_OAM, sprites.ptr, NUM_SPRITES * 4);
 }
 
 /**
@@ -207,17 +208,15 @@ void vsync()
 
 extern (C) int main()
 {
-    import core.stdc.string : memcpy;
+    memcpy16(MEM_BG_PALETTE, bgPalette.ptr, bgPalette.length);
+    memcpy16(&MEM_TILE[0][0], bgTileset.ptr, bgTileset.length / 2);
 
-    memcpy(MEM_BG_PALETTE, bgPalette.ptr, bgPalette.length * u16.sizeof);
-    memcpy(&MEM_TILE[0][0], bgTileset.ptr, bgTileset.length * u8.sizeof);
-
-    memcpy(&MEM_SCREENBLOCKS[1], bgTilemap.ptr, bgTilemap.length * u16.sizeof);
+    memcpy16(&MEM_SCREENBLOCKS[1], bgTilemap.ptr, bgTilemap.length);
 
     volatileStore(REG_BG0_CONTROL, 0x180);
 
-    memcpy(MEM_OBJ_PALETTE, spritePalette.ptr, spritePalette.length * u16.sizeof);
-    memcpy(&MEM_TILE[4][1], spriteTiles.ptr, spriteTiles.length * u8.sizeof);
+    memcpy16(MEM_OBJ_PALETTE, spritePalette.ptr, 256);
+    memcpy16(&MEM_TILE[4][1], spriteTiles.ptr, spriteTiles.length / 2);
 
     u32 playerX = 100;
     u32 playerY = 100;
@@ -227,8 +226,8 @@ extern (C) int main()
     s32 playerJumpDir = 1;
     bool playerJumping = false;
 
-    Sprite* player = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 2, 0);
-    Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s8x8, false, false, 4, 0);
+    Sprite* player = initSprite(playerX, playerY, SpriteSize.s16x16, false, false, 8, 0);
+    // Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s16x16, false, false, 14, 0);
 
     volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
 
@@ -240,10 +239,18 @@ extern (C) int main()
         if (getKeyState(KEY_LEFT))
         {
             if (playerX > 52) playerX--;
+            updateSpriteOffset(player, 10);
+            setSpriteHorizontalFlip(player, false);
         }
         else if (getKeyState(KEY_RIGHT))
         {
             if (playerX < 180) playerX++;
+            updateSpriteOffset(player, 10);
+            setSpriteHorizontalFlip(player, true);
+        }
+        else
+        {
+            updateSpriteOffset(player, 2);
         }
 
         if (getKeyState(KEY_UP))
@@ -271,7 +278,7 @@ extern (C) int main()
         }
 
         updateSpritePosition(player, playerX, playerY - playerJumpHeight);
-        updateSpritePosition(playerShadow, playerX, playerY);
+        // updateSpritePosition(playerShadow, playerX, playerY);
 
         memcpySprites();
     }

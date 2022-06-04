@@ -275,6 +275,13 @@ extern (C) int main()
             playerJumpHeight += playerJumpDir;
 
             if (playerJumpHeight == 0) playerJumping = false;
+
+            updateSpriteOffset(player, 26);
+            updateSpriteOffset(playerShadow, 6);
+        }
+        else
+        {
+            updateSpriteOffset(playerShadow, 2);
         }
 
         updateSpritePosition(player, playerX, playerY - playerJumpHeight);

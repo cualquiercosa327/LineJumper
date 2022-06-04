@@ -221,13 +221,13 @@ extern (C) int main()
     u32 playerX = 100;
     u32 playerY = 100;
 
-    u32 playerMaxJumpHeight = 15;
+    u32 playerMaxJumpHeight = 20;
     u32 playerJumpHeight = 0;
     s32 playerJumpDir = 1;
     bool playerJumping = false;
 
-    Sprite* player = initSprite(playerX, playerY, SpriteSize.s16x16, false, false, 8, 0);
-    // Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s16x16, false, false, 14, 0);
+    Sprite* player = initSprite(playerX, playerY, SpriteSize.s16x16, false, false, 0, 0);
+    Sprite* playerShadow = initSprite(playerX, playerY, SpriteSize.s16x8, false, false, 2, 0);
 
     volatileStore(REG_DISPLAY_CONTROL, DCNT_MODE0 | DCNT_BG0 | ENABLE_OBJECTS | MAPPING_MODE_1D);
 
@@ -238,28 +238,28 @@ extern (C) int main()
 
         if (getKeyState(KEY_LEFT))
         {
-            if (playerX > 52) playerX--;
-            updateSpriteOffset(player, 10);
+            if (playerX > 55) playerX--;
+            updateSpriteOffset(player, 18);
             setSpriteHorizontalFlip(player, false);
         }
         else if (getKeyState(KEY_RIGHT))
         {
-            if (playerX < 180) playerX++;
-            updateSpriteOffset(player, 10);
+            if (playerX < 170) playerX++;
+            updateSpriteOffset(player, 18);
             setSpriteHorizontalFlip(player, true);
         }
         else
         {
-            updateSpriteOffset(player, 2);
+            updateSpriteOffset(player, 10);
         }
 
         if (getKeyState(KEY_UP))
         {
-            if (playerY > 9) playerY--;
+            if (playerY > 7) playerY--;
         }
         else if (getKeyState(KEY_DOWN))
         {
-            if (playerY < 137) playerY++;
+            if (playerY < 128) playerY++;
         }
 
         if (getKeyState(KEY_B) && !playerJumping)
@@ -278,7 +278,7 @@ extern (C) int main()
         }
 
         updateSpritePosition(player, playerX, playerY - playerJumpHeight);
-        // updateSpritePosition(playerShadow, playerX, playerY);
+        updateSpritePosition(playerShadow, playerX, playerY + 9);
 
         memcpySprites();
     }
